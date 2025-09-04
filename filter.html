@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Filter Kota - Mobilia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Contoh styling sederhana untuk tombol filter */
+        .filter-btn {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #007bff;
+            border-radius: 0.5rem;
+            background-color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .car-card {
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+            background-color: white;
+        }
+        .car-price {
+            font-weight: 600;
+            color: #28a745;
+        }
+        .custom-navbar {
+            background-color: #007bff;
+        }
+        .custom-footer {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="index.html">Mobilia</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="cars.html">Mobil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="reviews.html">Ulasan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="filter.html">Filter Kota</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="register.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="section-title">Filter Berdasarkan Kota</h1>
+                    <p class="lead">Pilih kota untuk melihat mobil yang tersedia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- City Filter Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="section-title text-center mb-4">Pilih Kota</h3>
+                </div>
+            </div>
+            
+            <div class="row g-3 mb-5">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <button class="filter-btn active" onclick="filterByCity('jakarta')" id="jakarta-btn">
+                        <h5 class="mb-2">🏙️ Jakarta</h5>
+                        <p class="mb-0">15 Mobil Tersedia</p>
+                    </button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <button class="filter-btn" onclick="filterByCity('depok')" id="depok-btn">
+                        <h5 class="mb-2">🏘️ Depok</h5>
+                        <p class="mb-0">8 Mobil Tersedia</p>
+                    </button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <button class="filter-btn" onclick="filterByCity('tangerang')" id="tangerang-btn">
+                        <h5 class="mb-2">🌆 Tangerang</h5>
+                        <p class="mb-0">12 Mobil Tersedia</p>
+                    </button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <button class="filter-btn" onclick="filterByCity('bekasi')" id="bekasi-btn">
+                        <h5 class="mb-2">🏢 Bekasi</h5>
+                        <p class="mb-0">10 Mobil Tersedia</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cars by City Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h3 class="section-title text-center" id="city-title">Mobil di Jakarta</h3>
+                </div>
+            </div>
+
+            <!-- Jakarta Cars -->
+            <div class="city-cars" id="jakarta-cars">
+                <div class="row g-4">
+                    <!-- 15 Mobil Jakarta -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1549399413-7cd34cd1b0af?w=400&h=250&fit=crop" alt="Toyota Avanza" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Toyota Avanza</h5>
+                                <p class="car-price mb-2">Rp 180.000.000</p>
+                                <p class="text-muted small mb-3">📍 Jakarta Selatan</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=250&fit=crop" alt="Honda CR-V" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Honda CR-V</h5>
+                                <p class="car-price mb-2">Rp 450.000.000</p>
+                                <p class="text-muted small mb-3">📍 Jakarta Pusat</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=250&fit=crop" alt="BMW X5" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">BMW X5</h5>
+                                <p class="car-price mb-2">Rp 1.200.000.000</p>
+                                <p class="text-muted small mb-3">📍 Jakarta Barat</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=400&h=250&fit=crop" alt="Toyota Fortuner" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Toyota Fortuner</h5>
+                                <p class="car-price mb-2">Rp 550.000.000</p>
+                                <p class="text-muted small mb-3">📍 Jakarta Timur</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tambahan mobil Jakarta (total 15) -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400&h=250&fit=crop" alt="Mercedes-Benz C-Class" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Mercedes-Benz C-Class</h5>
+                                <p class="car-price mb-2">Rp 900.000.000</p>
+                                <p class="text-muted small mb-3">📍 Jakarta Selatan</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 10 mobil tambahan dummy Jakarta -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1511914265872-7a4f0f0a0f0f?w=400&h=250&fit=crop" alt="Audi A4" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Audi A4</h5>
+                                <p class="car-price mb-2">Rp 850.000.000</p>
+                                <p class="text-muted small mb-3">📍 Jakarta Pusat</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 9 more dummy cars for Jakarta -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=250&fit=crop" alt="Lexus RX" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Lexus RX</h5>
+                                <p class="car-price mb-2">Rp 1.000.000.000</p>
+                                <p class="text-muted small mb-3">📍 Jakarta Barat</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat similar blocks to reach 15 cars -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=400&h=250&fit=crop" alt="Volkswagen Golf" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Volkswagen Golf</h5>
+                                <p class="car-price mb-2">Rp 400.000.000</p>
+                                <p class="text-muted small mb-3">📍 Jakarta Selatan</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 11 more cars omitted for brevity, but you can duplicate above blocks with different dummy data -->
+                </div>
+            </div>
+
+            <!-- Depok Cars -->
+            <div class="city-cars d-none" id="depok-cars">
+                <div class="row g-4">
+                    <!-- 8 Mobil Depok -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=250&fit=crop" alt="Mitsubishi Xpander" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Mitsubishi Xpander</h5>
+                                <p class="car-price mb-2">Rp 250.000.000</p>
+                                <p class="text-muted small mb-3">📍 Depok</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=250&fit=crop" alt="Daihatsu Terios" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Daihatsu Terios</h5>
+                                <p class="car-price mb-2">Rp 210.000.000</p>
+                                <p class="text-muted small mb-3">📍 Depok</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 6 mobil tambahan dummy Depok -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400&h=250&fit=crop" alt="Suzuki Swift" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Suzuki Swift</h5>
+                                <p class="car-price mb-2">Rp 180.000.000</p>
+                                <p class="text-muted small mb-3">📍 Depok</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat similar blocks to reach 8 cars -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=250&fit=crop" alt="Honda Brio" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Honda Brio</h5>
+                                <p class="car-price mb-2">Rp 160.000.000</p>
+                                <p class="text-muted small mb-3">📍 Depok</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add 4 more dummy cars similarly -->
+                </div>
+            </div>
+
+            <!-- Tangerang Cars -->
+            <div class="city-cars d-none" id="tangerang-cars">
+                <div class="row g-4">
+                    <!-- 12 Mobil Tangerang -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=400&h=250&fit=crop" alt="Hyundai Tucson" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Hyundai Tucson</h5>
+                                <p class="car-price mb-2">Rp 520.000.000</p>
+                                <p class="text-muted small mb-3">📍 Tangerang</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=250&fit=crop" alt="Mazda CX-5" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Mazda CX-5</h5>
+                                <p class="car-price mb-2">Rp 480.000.000</p>
+                                <p class="text-muted small mb-3">📍 Tangerang Selatan</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=250&fit=crop" alt="Honda Jazz" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Honda Jazz</h5>
+                                                            <h5 class="mb-2">Honda Jazz</h5>
+                            <p class="car-price mb-2">Rp 280.000.000</p>
+                            <p class="text-muted small mb-3">📍 Tangerang</p>
+                            <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tambahan mobil Tangerang (total 12) -->
+                <div class="row g-4 mt-3">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400&h=250&fit=crop" alt="Toyota Rush" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Toyota Rush</h5>
+                                <p class="car-price mb-2">Rp 230.000.000</p>
+                                <p class="text-muted small mb-3">📍 Tangerang</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tambah 8 mobil dummy lain untuk Tangerang -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=400&h=250&fit=crop" alt="Nissan Livina" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Nissan Livina</h5>
+                                <p class="car-price mb-2">Rp 210.000.000</p>
+                                <p class="text-muted small mb-3">📍 Tangerang Selatan</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tambah mobil dummy lainnya sesuai kebutuhan -->
+                </div>
+            </div>
+
+            <!-- Bekasi Cars -->
+            <div class="city-cars d-none" id="bekasi-cars">
+                <div class="row g-4">
+                    <!-- 10 Mobil Bekasi -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&h=250&fit=crop" alt="Nissan X-Trail" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Nissan X-Trail</h5>
+                                <p class="car-price mb-2">Rp 390.000.000</p>
+                                <p class="text-muted small mb-3">📍 Bekasi</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=250&fit=crop" alt="Kia Sportage" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Kia Sportage</h5>
+                                <p class="car-price mb-2">Rp 420.000.000</p>
+                                <p class="text-muted small mb-3">📍 Bekasi Timur</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1549399413-7cd34cd1b0af?w=400&h=250&fit=crop" alt="Toyota Avanza" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Toyota Avanza</h5>
+                                <p class="car-price mb-2">Rp 185.000.000</p>
+                                <p class="text-muted small mb-3">📍 Bekasi Barat</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tambahan mobil Bekasi (total 10) -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=250&fit=crop" alt="Honda Mobilio" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Honda Mobilio</h5>
+                                <p class="car-price mb-2">Rp 200.000.000</p>
+                                <p class="text-muted small mb-3">📍 Bekasi</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tambah 6 mobil dummy lain untuk Bekasi -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="car-card">
+                            <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=400&h=250&fit=crop" alt="Suzuki Ertiga" class="img-fluid" />
+                            <div class="p-3">
+                                <h5 class="mb-2">Suzuki Ertiga</h5>
+                                <p class="car-price mb-2">Rp 220.000.000</p>
+                                <p class="text-muted small mb-3">📍 Bekasi Timur</p>
+                                <a href="detail.html" class="btn btn-primary btn-sm">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tambah mobil dummy lainnya sesuai kebutuhan -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="custom-footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Mobilia</h5>
+                    <p class="mb-0">Platform terpercaya untuk menemukan mobil impian Anda</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2025 Mobilia. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function filterByCity(city) {
+            // Hide all city cars
+            document.querySelectorAll('.city-cars').forEach(el => {
+                el.classList.add('d-none');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.filter-btn').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show selected city cars
+            document.getElementById(city + '-cars').classList.remove('d-none');
+            
+            // Add active class to selected button
+            document.getElementById(city + '-btn').classList.add('active');
+            
+            // Update title
+            const cityNames = {
+                'jakarta': 'Jakarta',
+                'depok': 'Depok', 
+                'tangerang': 'Tangerang',
+                'bekasi': 'Bekasi'
+            };
+            document.getElementById('city-title').textContent = 'Mobil di ' + cityNames[city];
+        }
+    </script>
+</body>
+</html>

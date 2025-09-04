@@ -1,0 +1,234 @@
+/* Custom CSS for Mobilia */
+:root {
+    --primary-color: #6cb7e8;
+    --primary-dark: #005f99;
+    --price-color: #dc3545;
+    --light-gray: #f8f9fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar Styles */
+.custom-navbar {
+    background-color: var(--primary-color) !important;
+    box-shadow: var(--shadow);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    letter-spacing: -1px;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=800&fit=crop') center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Section Titles */
+.section-title {
+    color: var(--primary-dark);
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/* Feature Cards */
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Car Cards */
+.car-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+}
+
+.car-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.car-price {
+    color: var(--price-color);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/* Buttons */
+.custom-btn, .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 6px;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+}
+
+.custom-btn:hover, .btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: var(--primary-color);
+}
+
+/* Footer */
+.custom-footer {
+    background: white;
+    border-top: 1px solid #dee2e6;
+    color: #6c757d;
+}
+
+/* Forms */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.form-bg {
+    background-color: var(--light-gray);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Review Cards */
+.review-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.review-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.rating {
+    color: #ffc107;
+}
+
+/* Filter Buttons */
+.filter-btn {
+    background: white;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Detail Page */
+.detail-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.detail-price {
+    color: var(--price-color);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .search-container {
+        padding: 0 1rem;
+    }
+    
+    .feature-card {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    
+    .hero-section {
+        height: 50vh;
+    }
+    
+    .display-4 {
+        font-size: 1.75rem;
+    }
+}
